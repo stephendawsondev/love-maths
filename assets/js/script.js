@@ -1,4 +1,24 @@
-function runFame() {
+// Wait for the DOM to load and then
+// get the button elements and add
+// event listeners to them
+
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.getElementsByTagName('button');
+
+    for (let button of buttons) {
+        button.addEventListener('click', function () {
+            if (this.getAttribute('data-type') === 'submit') {
+                alert('Submit clicked!');
+            } else {
+                let gameType = this.getAttribute('data-type');
+                alert(`You clicked ${gameType}`);
+            }
+        });
+    }
+
+});
+
+function runGame() {
 
 }
 
