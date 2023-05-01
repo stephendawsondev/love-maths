@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    runGame("addition");
+
 });
 
 /**
@@ -135,7 +137,18 @@ function displayMultiplyQuestion(operand1, operand2) {
 }
 
 function displayDivisionQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1 >= operand2 ? operand1 : operand2;
-    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;
+    if(operand1 < 10){
+        operand1 = 10;
+    }
+
+    operand1 = operand1 * operand2;
+
+    if(operand1 % operand2 !== 0){
+        let remainder = operand1 % operand2;
+        operand2 = operand2 + (operand2 - remainder)
+    }
+
+    document.getElementById('operand1').textContent = operand1;
+    document.getElementById('operand2').textContent = operand2;
     document.getElementById('operator').textContent = '÷';
 }
